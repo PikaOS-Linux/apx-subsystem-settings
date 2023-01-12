@@ -25,7 +25,7 @@ from gi.repository import Gtk, GLib, GObject
 logger = logging.getLogger("Vanilla:Container")
 
 
-@Gtk.Template(resource_path='/org/vanillaos/ControlCenter/gtk/container.ui')
+@Gtk.Template(resource_path='/com/cosmo/ApxSubsystemSettings/gtk/container.ui')
 class VanillaApxContainer(Adw.ActionRow):
     __gtype_name__ = "VanillaApxContainer"
     btn_shell = Gtk.Template.Child()

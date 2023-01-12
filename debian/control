@@ -21,5 +21,6 @@ Depends: python3,
          libadwaita-1-0,
          gir1.2-gtk-4.0,
          gir1.2-adw-1,
-         apx
+         apx,
+         xdg-terminal
 Description: This utility allows you to manage APX Sub-systems Settings.

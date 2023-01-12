@@ -1,4 +1,4 @@
-application_id = 'org.vanillaos.ControlCenter'
+application_id = 'com.cosmo.ApxSubsystemSettings'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

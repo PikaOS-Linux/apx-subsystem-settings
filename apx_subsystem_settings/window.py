@@ -24,14 +24,14 @@ from gi.repository import Gtk, GLib, GObject
 
 from .program import VanillaApxProgram
 from .container import VanillaApxContainer
-from .apx import Apx
+from .backends.apx import Apx
 from .run_async import RunAsync
 
 
 logger = logging.getLogger("Vanilla")
 
 
-@Gtk.Template(resource_path='/org/vanillaos/ControlCenter/gtk/window.ui')
+@Gtk.Template(resource_path='/com/cosmo/ApxSubsystemSettings/gtk/window.ui')
 class VanillaWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'VanillaWindow'
     __gsignals__ = {

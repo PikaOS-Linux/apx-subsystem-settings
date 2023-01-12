@@ -25,7 +25,7 @@ from gi.repository import Gtk, GObject
 logger = logging.getLogger("Vanilla:Program")
 
 
-@Gtk.Template(resource_path='/org/vanillaos/ControlCenter/gtk/program.ui')
+@Gtk.Template(resource_path='/com/cosmo/ApxSubsystemSettings/gtk/program.ui')
 class VanillaApxProgram(Adw.ActionRow):
     __gtype_name__ = "VanillaApxProgram"
     __gsignals__ = {

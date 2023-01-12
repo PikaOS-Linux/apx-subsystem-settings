@@ -10,7 +10,7 @@ gnome = import('gnome')
 
 
 subdir('data')
-subdir('vanilla_control_center')
+subdir('apx_subsystem_settings')
 subdir('po')
 subdir('help')
 

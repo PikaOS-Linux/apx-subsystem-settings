@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/vanillaos/ControlCenter">
+  <gresource prefix="/com/cosmo/ApxSubsystemSettings">
     <file preprocess="xml-stripblanks">gtk/window.ui</file>
     <file preprocess="xml-stripblanks">gtk/driver.ui</file>
     <file preprocess="xml-stripblanks">gtk/container.ui</file>

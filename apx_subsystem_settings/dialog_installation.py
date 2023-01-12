@@ -20,7 +20,7 @@
 from gi.repository import Gtk, Gio, Gdk, GLib, Adw, Vte, Pango
 
 
-@Gtk.Template(resource_path='/org/vanillaos/ControlCenter/gtk/dialog-installation.ui')
+@Gtk.Template(resource_path='/com/cosmo/ApxSubsystemSettings/gtk/dialog-installation.ui')
 class VanillaDialogInstallation(Adw.Window):
     __gtype_name__ = 'VanillaDialogInstallation'
 

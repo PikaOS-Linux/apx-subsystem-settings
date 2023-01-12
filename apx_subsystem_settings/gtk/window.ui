@@ -5,7 +5,7 @@
     <property name="width-request">400</property>
     <property name="default-width">990</property>
     <property name="default-height">700</property>
-    <property name="title" translatable="yes">APX Sub-systems Settings</property>
+    <property name="title" translatable="yes">APX Sub-System Settings</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
@@ -14,7 +14,7 @@
             <property name="title-widget">
               <object class="AdwViewSwitcherTitle">
                 <property name="stack">stack_main</property>
-                <property name="title" translatable="true">APX Sub-systems Settings</property>
+                <property name="title" translatable="true">APX Sub-System Settings</property>
               </object>
             </property>
             <child type="end">
@@ -37,38 +37,41 @@
         <child>
           <object class="AdwToastOverlay" id="toasts">
             <child>
-              <object class="AdwViewStackPage" id="page_apx">
-                <property name="name">subsystem</property>
-                <property name="title" translatable="true">Sub System</property>
-                <property name="icon-name">utilities-terminal-symbolic</property>
-                <property name="child">
-                  <object class="GtkBox">
-                    <property name="orientation">vertical</property>
-                    <property name="halign">fill</property>
-                    <child>
-                      <object class="AdwPreferencesPage">
+              <object class="AdwViewStack" id="stack_main">
+                <property name="vexpand">true</property>
+                <child>
+                  <object class="AdwViewStackPage" id="page_apx">
+                    <property name="name">subsystem</property>
+                    <property name="title" translatable="true">Sub System</property>
+                    <property name="icon-name">utilities-terminal-symbolic</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="halign">fill</property>
                         <child>
-                          <object class="AdwPreferencesGroup" id="group_containers">
-                            <property name="title" translatable="true">Containers</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="AdwPreferencesGroup" id="group_apps">
-                            <property name="title" translatable="true">Installed Applications</property>
+                          <object class="AdwPreferencesPage">
+                            <child>
+                              <object class="AdwPreferencesGroup" id="group_containers">
+                                <property name="title" translatable="true">Containers</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwPreferencesGroup" id="group_apps">
+                                <property name="title" translatable="true">Installed Applications</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
-                    </child>
+                    </property>
                   </object>
-                </property>
+                </child>
               </object>
             </child>
           </object>
         </child>
       </object>
     </child>
-  </object>
-</child>
   </template>
   <menu id="primary_menu">
     <section>

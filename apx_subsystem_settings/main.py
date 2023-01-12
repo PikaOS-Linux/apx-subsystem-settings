@@ -36,7 +36,7 @@ class VanillaControlCenterApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self):
-        super().__init__(application_id='org.vanillaos.ControlCenter',
+        super().__init__(application_id='com.cosmo.ApxSubsystemSettings',
                          flags=Gio.ApplicationFlags.FLAGS_NONE)
         self.create_action('quit', self.quit, ['<primary>q'])
         self.create_action('about', self.on_about_action)
@@ -56,11 +56,11 @@ class VanillaControlCenterApplication(Adw.Application):
         """Callback for the app.about action."""
         about = Adw.AboutWindow(transient_for=self.props.active_window,
                                 application_name=_('APX Sub-System Settings'),
-                                application_icon='org.vanillaos.ControlCenter',
-                                developer_name='Mirko Brombin',
+                                application_icon='com.cosmo.ApxSubsystemSettings',
+                                developer_name='CosmoHQ',
                                 version='1.3.1',
-                                developers=['Mirko Brombin'],
-                                copyright='© 2022 Mirko Brombin')
+                                developers=['CosmoHQ'],
+                                copyright='© 2023 Ward Nakchbandi')
         about.add_credit_section(
             _("Translators"),
             [

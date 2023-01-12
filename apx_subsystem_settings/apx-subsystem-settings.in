@@ -1,6 +1,6 @@
 #!@PYTHON@
 
-# vanilla-control-center.in
+# apx-subsystem-settings.in
 #
 # Copyright 2023 Mirko Brombin
 #
@@ -31,16 +31,16 @@ localedir = '@localedir@'
 
 sys.path.insert(1, pkgdatadir)
 signal.signal(signal.SIGINT, signal.SIG_DFL)
-locale.bindtextdomain('vanilla-control-center', localedir)
-locale.textdomain('vanilla-control-center')
-gettext.install('vanilla-control-center', localedir)
+locale.bindtextdomain('apx-subsystem-settings', localedir)
+locale.textdomain('apx-subsystem-settings')
+gettext.install('apx-subsystem-settings', localedir)
 
 if __name__ == '__main__':
     import gi
 
     from gi.repository import Gio
-    resource = Gio.Resource.load(os.path.join(pkgdatadir, 'vanilla-control-center.gresource'))
+    resource = Gio.Resource.load(os.path.join(pkgdatadir, 'apx-subsystem-settings.gresource'))
     resource._register()
 
-    from vanilla_control_center import main
+    from apx_subsystem_settings import main
     sys.exit(main.main(VERSION))
