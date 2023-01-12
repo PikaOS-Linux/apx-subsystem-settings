@@ -5,7 +5,7 @@
     <property name="width-request">400</property>
     <property name="default-width">990</property>
     <property name="default-height">700</property>
-    <property name="title" translatable="yes">Vanilla OS Control Center</property>
+    <property name="title" translatable="yes">APX Sub-systems Settings</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
@@ -14,7 +14,7 @@
             <property name="title-widget">
               <object class="AdwViewSwitcherTitle">
                 <property name="stack">stack_main</property>
-                <property name="title" translatable="true">Vanilla OS Control Center</property>
+                <property name="title" translatable="true">APX Sub-systems Settings</property>
               </object>
             </property>
             <child type="end">
@@ -37,191 +37,38 @@
         <child>
           <object class="AdwToastOverlay" id="toasts">
             <child>
-              <object class="AdwViewStack" id="stack_main">
-                <property name="vexpand">true</property>
-                <child>
-                  <object class="AdwViewStackPage">
-                    <property name="name">drivers</property>
-                    <property name="title" translatable="true">Drivers</property>
-                    <property name="icon-name">drive-harddisk-solidstate-symbolic</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <property name="halign">fill</property>
-                        <property name="valign">center</property>
+              <object class="AdwViewStackPage" id="page_apx">
+                <property name="name">subsystem</property>
+                <property name="title" translatable="true">Sub System</property>
+                <property name="icon-name">utilities-terminal-symbolic</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="halign">fill</property>
+                    <child>
+                      <object class="AdwPreferencesPage">
                         <child>
-                          <object class="AdwStatusPage" id="status_drivers">
-                            <property name="icon-name">drive-harddisk-solidstate-symbolic</property>
-                            <property name="title" translatable="true">Loading drivers…</property>
-                            <property name="description" translatable="true">Please wait while the available drivers are being loaded.</property>
-                            <property name="valign">center</property>
+                          <object class="AdwPreferencesGroup" id="group_containers">
+                            <property name="title" translatable="true">Containers</property>
                           </object>
                         </child>
                         <child>
-                          <object class="AdwStatusPage" id="status_no_drivers">
-                            <property name="visible">false</property>
-                            <property name="icon-name">drive-harddisk-solidstate-symbolic</property>
-                            <property name="title" translatable="true">No Drivers Available</property>
-                            <property name="description" translatable="true">There are no extra drivers available for your system.</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="AdwPreferencesPage" id="page_drivers">
-                            <property name="visible">False</property>
+                          <object class="AdwPreferencesGroup" id="group_apps">
+                            <property name="title" translatable="true">Installed Applications</property>
                           </object>
                         </child>
                       </object>
-                    </property>
+                    </child>
                   </object>
-                </child>
-                <child>
-                  <object class="AdwViewStackPage" id="page_prime">
-                    <property name="name">prime</property>
-                    <property name="title" translatable="true">PRIME Profiles</property>
-                    <property name="icon-name">video-display-symbolic</property>
-                    <property name="child">
-                      <object class="AdwPreferencesPage" id="status_prime">
-                        <child>
-                          <object class="AdwPreferencesGroup">
-                            <property name="title" translatable="true">Active Profile</property>
-                            <child>
-                              <object class="GtkListBox" id="list_prime">
-                                <style>
-                                  <class name="boxed-list"/>
-                                </style>
-                                <child>
-                                  <object class="AdwActionRow" id="row_igpu_status">
-                                    <property name="title" translatable="true">Integrated GPU</property>
-                                    <property name="subtitle" translatable="true">Not detected</property>
-                                    <property name="activatable">True</property>
-                                    <property name="selectable">True</property>
-                                    <child type="suffix">
-                                      <object class="GtkImage" id="img_igpu">
-                                        <property name="icon-name">object-select-symbolic</property>
-                                        <property name="valign">center</property>
-                                        <property name="visible">False</property>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="AdwActionRow" id="row_dgpu_status">
-                                    <property name="title" translatable="true">Discrete GPU</property>
-                                    <property name="subtitle" translatable="true">Not detected</property>
-                                    <property name="activatable">True</property>
-                                    <property name="selectable">True</property>
-                                    <child type="suffix">
-                                      <object class="GtkImage" id="img_dgpu">
-                                        <property name="icon-name">object-select-symbolic</property>
-                                        <property name="valign">center</property>
-                                        <property name="visible">False</property>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="AdwActionRow" id="row_hgpu_status">
-                                    <property name="title" translatable="true">Hybrid</property>
-                                    <property name="subtitle" translatable="true">Use the integrated GPU for everything and the discrete GPU on demand</property>
-                                    <property name="activatable">True</property>
-                                    <property name="selectable">True</property>
-                                    <child type="suffix">
-                                      <object class="GtkImage" id="img_hgpu">
-                                        <property name="icon-name">object-select-symbolic</property>
-                                        <property name="valign">center</property>
-                                        <property name="visible">False</property>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="AdwViewStackPage" id="page_updates">
-                    <property name="name">updates</property>
-                    <property name="title" translatable="true">Updates</property>
-                    <property name="icon-name">software-update-available-symbolic</property>
-                    <property name="child">
-                      <object class="AdwPreferencesPage" id="status_updates">
-                        <child>
-                          <object class="AdwPreferencesGroup">
-                            <property name="title" translatable="true">Preferences</property>
-                            <child>
-                              <object class="AdwActionRow" id="row_update_status">
-                                <property name="title" translatable="true">Latest Update Check</property>
-                                <property name="subtitle" translatable="true">Never</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="AdwComboRow" id="combo_update_schedule">
-                                <property name="title" translatable="true">Updates Scheduling</property>
-                                <property name="subtitle" translatable="true">Choose how often the system should check for updates.</property>
-                                <property name="model">
-                                  <object class="GtkStringList" id="str_update_schedule">
-                                    <items>
-                                      <item translatable="yes">Weekly</item>
-                                      <item translatable="yes">Monthly</item>
-                                    </items>
-                                  </object>
-                                </property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="AdwActionRow" id="row_update_smart">
-                                <property name="title" translatable="true">SmartUpdate</property>
-                                <property name="subtitle" translatable="true">If enabled, the system will not update if the system is in high load or the battery is low.</property>
-                                <child type="suffix">
-                                  <object class="GtkSwitch" id="switch_update_smart">
-                                    <property name="valign">center</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="AdwViewStackPage" id="page_apx">
-                    <property name="name">subsystem</property>
-                    <property name="title" translatable="true">Sub System</property>
-                    <property name="icon-name">utilities-terminal-symbolic</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <property name="halign">fill</property>
-                        <child>
-                          <object class="AdwPreferencesPage">
-                            <child>
-                              <object class="AdwPreferencesGroup" id="group_containers">
-                                <property name="title" translatable="true">Containers</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="AdwPreferencesGroup" id="group_apps">
-                                <property name="title" translatable="true">Installed Applications</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
+                </property>
               </object>
             </child>
           </object>
         </child>
       </object>
     </child>
+  </object>
+</child>
   </template>
   <menu id="primary_menu">
     <section>
