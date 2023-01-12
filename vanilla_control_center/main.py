@@ -58,7 +58,7 @@ class VanillaControlCenterApplication(Adw.Application):
                                 application_name=_('APX Sub-System Settings'),
                                 application_icon='org.vanillaos.ControlCenter',
                                 developer_name='Mirko Brombin',
-                                version='1.0.2',
+                                version='1.3.1',
                                 developers=['Mirko Brombin'],
                                 copyright='© 2022 Mirko Brombin')
         about.add_credit_section(

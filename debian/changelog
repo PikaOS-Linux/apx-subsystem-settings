@@ -1,24 +1,5 @@
-vanilla-control-center (1.3.1) kinetic; urgency=critical
+apx-subystem-settings (1.3.1) kinetic; urgency=critical
 
-  * Support the Alpine subsystem
+  * initial release
 
- -- Mirko Brombin <send@mirko.pm>  Sun, 1 Jan 2022 10:44:00 +0000
-
-vanilla-control-center (1.1.0) kinetic; urgency=critical
-
-  * Fix drivers not being installed
-  * Show output of driver installation
-
- -- Mirko Brombin <send@mirko.pm>  Sat, 31 Dec 2022 10:48:00 +0000
-
-vanilla-control-center (1.0.4) kinetic; urgency=critical
-
-  * Fix dpkg location with new ABRoot versions
-
- -- Mirko Brombin <send@mirko.pm>  Fri, 30 Dec 2022 13:48:00 +0000
-
-vanilla-control-center (1.0.3) kinetic; urgency=critical
-
-  * Show no drivers view when no drivers are available
-
- -- Mirko Brombin <send@mirko.pm>  Sat, 10 Dec 2022 13:48:00 +0000
+ -- Ward Nakchbandi <hotrod.master@hotmail.com>  Sat, 10 Dec 2022 13:48:00 +0300
