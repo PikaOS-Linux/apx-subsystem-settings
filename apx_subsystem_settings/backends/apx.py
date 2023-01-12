@@ -141,8 +141,8 @@ class Apx:
                 "Name": container["Name"],
                 "Status": 1,
                 "Alias": alias,
-                "ShellCmd": f"xdg-terminal -e { self.__binary } { container['Flag'] } enter",
-                "InitCmd": f"xdg-terminal -e { self.__binary } { container['Flag'] } init",
+                "ShellCmd": f"xdg-terminal { self.__binary } { container['Flag'] } enter",
+                "InitCmd": f"xdg-terminal { self.__binary } { container['Flag'] } init",
                 "Apps": []
             }
             if alias in res.stdout.decode("utf-8"):
