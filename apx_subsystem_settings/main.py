@@ -59,8 +59,8 @@ class VanillaControlCenterApplication(Adw.Application):
                                 application_icon='com.cosmo.ApxSubsystemSettings',
                                 developer_name='CosmoHQ',
                                 version='1.3.1',
-                                developers=['CosmoHQ'],
-                                copyright='© 2023 Ward Nakchbandi')
+                                developers=['CosmoHQ, Mirko Brombin'],
+                                copyright='© 2023 Ward Nakchbandi, © 2022 Mirko Brombin')
         about.add_credit_section(
             _("Translators"),
             [
