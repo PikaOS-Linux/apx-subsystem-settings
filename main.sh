@@ -5,6 +5,10 @@ wget -q -O - https://ppa.pika-os.com/key.gpg | sudo apt-key add -
 add-apt-repository https://ppa.pika-os.com
 add-apt-repository ppa:pikaos/pika
 add-apt-repository ppa:kubuntu-ppa/backports
+# Clone Upstream
+mkdir -p ./apx-subsystem-settings
+cp -rvf ./* ./apx-subsystem-settings || echo
+cd ./apx-subsystem-settings
 
 # Get build deps
 ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -18,3 +22,4 @@ dpkg-buildpackage
 cd ../
 mkdir -p ./output
 mv ./*.deb ./output/
+
