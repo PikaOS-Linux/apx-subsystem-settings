@@ -20,33 +20,33 @@
 import logging
 from gi.repository import Adw
 from gi.repository import Gtk, GLib, GObject
-
+from gettext import gettext as _
 
 logger = logging.getLogger("Vanilla:Container")
 
 
-@Gtk.Template(resource_path='/com/cosmo/ApxSubsystemSettings/gtk/container.ui')
+@Gtk.Template(resource_path='/org/vanillaos/ControlCenter/gtk/container.ui')
 class VanillaApxContainer(Adw.ActionRow):
     __gtype_name__ = "VanillaApxContainer"
     btn_shell = Gtk.Template.Child()
     btn_init = Gtk.Template.Child()
-    
+
     def __init__(self, window: Gtk.Widget, container: dict):
         super().__init__()
         self.__window = window
         self.__container = container
         self.__build_ui()
-    
+
     def __build_ui(self):
         self.set_title(self.__container["Name"])
         self.set_subtitle(self.__container["Alias"])
 
         self.btn_init.set_visible(not self.__container["Status"] == 0)
         self.btn_shell.set_visible(self.__container["Status"] == 0)
-        
+
         self.btn_shell.connect("clicked", self.__on_btn_shell_clicked)
         self.btn_init.connect("clicked", self.__on_btn_init_clicked)
-        
+
     def __on_btn_shell_clicked(self, widget):
         GLib.spawn_command_line_async(self.__container["ShellCmd"])
         self.__window.toast(_("Shell opened for container '{}'").format(self.__container["Name"]))
@@ -57,4 +57,3 @@ class VanillaApxContainer(Adw.ActionRow):
             self.btn_init.set_visible(False)
             self.btn_shell.set_visible(True)
             self.__window.toast(_("Container '{}' initialized").format(self.__container["Name"]))
-        

@@ -24,7 +24,7 @@ import shutil
 from pathlib import Path
 from enum import Enum
 from glob import glob
-
+from gettext import gettext as _
 
 logger = logging.getLogger("Vanilla::Apx")
 
@@ -32,21 +32,29 @@ logger = logging.getLogger("Vanilla::Apx")
 class Apx:
 
     __managed_containers = {
-        "apx_managed": {
-            "Flag": "",
-            "Name": "Sub System",
+        "apx_managed":{
+            _("Flag"): "",
+            _("Name"): _("Sub System"),
         },
         "apx_managed_aur": {
-            "Flag": "--aur",
-            "Name": "Arch Linux Sub System",
+            _("Flag"): "--aur",
+            _("Name"): _("Arch Linux Sub System"),
         },
         "apx_managed_dnf": {
-            "Flag": "--dnf",
-            "Name": "Fedora Sub System",
+            _("Flag"): "--dnf",
+            _("Name"): _("Fedora Sub System"),
         },
         "apx_managed_apk": {
-            "Flag": "--apk",
-            "Name": "Alpine Sub System",
+            _("Flag"): "--apk",
+            _("Name"): _("Alpine Sub System"),
+        },
+        "apx_managed_zypper": {
+            _("Flag"): "--zypper",
+            _("Name"): _("openSUSE Sub System"),
+        },
+        "apx_managed_xbps": {
+            _("Flag"): "--xbps",
+            _("Name"): _("Void Linux Sub System"),
         }
     }
 
@@ -55,23 +63,23 @@ class Apx:
         self.__dbox_binary = "/usr/lib/apx/distrobox"
         self.__desktop = os.path.join(Path.home(), ".local", "share", "applications")
         self.__apps = self.__get_apps()
-    
+
     @property
     def supported(self) -> bool:
         if "apx" in os.environ.get("DISABLED_MODULES", []):
-            logger.info("apx module disabled")
+            logger.info(_("Apx module disabled"))
             return False
 
         if self.__binary is None:
-            logger.info("apx binary not found")
+            logger.info(_("Apx binary not found"))
             return False
 
         if not os.path.exists(self.__dbox_binary):
-            logger.info("distrobox binary not found")
+            logger.info(_("Distrobox binary not found"))
             return False
 
         return True
-    
+
     @property
     def apps(self) -> list:
         return self.__apps
@@ -83,11 +91,11 @@ class Apx:
     def __get_apps(self) -> list:
         if not self.supported or not os.path.exists(self.__desktop):
             return []
-        
+
         apps = []
         for file in glob(os.path.join(self.__desktop, "apx_managed*.desktop")):
             container = os.path.basename(file).split("-")[0]
-            
+
             with open(file, "r") as f:
                 _name, _exec, _terminal = None, None, None
                 lines = f.readlines()
@@ -114,7 +122,7 @@ class Apx:
                             _terminal = "false"
 
         return apps
-    
+
     def __get_apps_for_container(self, container: str) -> list:
         if not self.supported:
             return []
@@ -132,9 +140,9 @@ class Apx:
 
         res = subprocess.run([self.__dbox_binary, "list"], capture_output=True)
         if res.returncode != 0:
-            logger.error("Unable to get containers")
+            logger.error(_("Unable to get containers"))
             return []
-            
+
         containers = []
         for alias, container in self.__managed_containers.items():
             _container = {
@@ -150,14 +158,14 @@ class Apx:
                 _container["Status"] = 0
                 _container["Apps"] = self.__get_apps_for_container(_container["Name"])
             else:
-                logger.info("Container '{0}' not found".format(alias))
+                logger.info(_("Container '{0}' not found".format(alias)))
 
             containers.append(_container)
 
         return containers
 
     def run(self, name: str) -> bool:
-        logger.info("Running application: '{0}'".format(name))
+        logger.info(_("Running application: '{0}'".format(name)))
 
         for app in self.__apps:
             if app["Name"] == name:
@@ -165,13 +173,13 @@ class Apx:
                 cmd = app["Exec"]
                 if app["Terminal"] == "true":
                     cmd = "x-terminal-emulator -e " + cmd
-                
+
                 try:
                     proc = subprocess.Popen(cmd, shell=True)
                     proc.wait()
                 except Exception as e:
-                    logger.error("Unable to start managed application: '{0}'".format(name))
+                    logger.error(_("Unable to start managed application: '{0}'".format(name)))
                     logger.debug(e)
                     return False
-                    
+
         return True
