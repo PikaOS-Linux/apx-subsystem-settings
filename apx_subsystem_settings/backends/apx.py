@@ -32,9 +32,9 @@ logger = logging.getLogger("Vanilla::Apx")
 class Apx:
 
     __managed_containers = {
-        "apx_managed":{
-            _("Flag"): "",
-            _("Name"): _("Sub System"),
+        "apx_managed_pika": {
+            _("Flag"): "--pika",
+            _("Name"): _("PikaOS Sub System"),
         },
         "apx_managed_aur": {
             _("Flag"): "--aur",
@@ -50,11 +50,23 @@ class Apx:
         },
         "apx_managed_zypper": {
             _("Flag"): "--zypper",
-            _("Name"): _("openSUSE Sub System"),
+            _("Name"): _("OpenSUSE Tumbleweed Sub System"),
         },
         "apx_managed_xbps": {
             _("Flag"): "--xbps",
             _("Name"): _("Void Linux Sub System"),
+        },
+        "apx_managed_nix": {
+            _("Flag"): "--nix",
+            _("Name"): _("NixOS Linux Sub System"),
+        },
+        "apx_managed":{
+            _("Flag"): "",
+            _("Name"): _("Ubuntu Sub System"),
+        },
+        "apx_managed_deb": {
+            _("Flag"): "--deb",
+            _("Name"): _("Debian Sid Sub System"),
         }
     }
 
