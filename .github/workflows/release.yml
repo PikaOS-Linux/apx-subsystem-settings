@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: self-hosted
     container:
-      image: ubuntu:22.10
+      image: ubuntu:23.04
       volumes:
         - /proc:/proc
       options: --privileged -it
@@ -21,7 +21,7 @@ jobs:
     - name: Import GPG key
       id: import_gpg
       uses: crazy-max/ghaction-import-gpg@v5
-      with:
+      with:workflo
         gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
 
