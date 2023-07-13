@@ -64,6 +64,10 @@ class Apx:
             _("Flag"): "",
             _("Name"): _("Ubuntu Sub System"),
         },
+        "apx_managed_swupd":{
+            _("Flag"): "",
+            _("Name"): _("Clear Linux* Sub System"),
+        },
         "apx_managed_deb": {
             _("Flag"): "--deb",
             _("Name"): _("Debian Sid Sub System"),
